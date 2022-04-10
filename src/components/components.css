@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body {
+  background-color: rgb(212, 245, 234);
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+  font-family: 'Roboto';
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cardsBlock {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.card {
+  width: 250px;
+  background-color: blue;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.bgcard {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: lightblue;
+  height: 190px;
+}
+
+.aboutCard {
+  height: 120px;
+  padding: 0px 5px 1px 10px;
+}
+
+.nav {
+  width: 495px;
+  display: flex;
+  align-items: center;
+}
+
+.link, .allNews {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-size: 22px;
+}
+
+.allNews {
+  border-radius: 5px;
+}
+
+.link {
+  color: #fff;
+  background-color: blue;
+}
+
+.linkCats {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.allNews {
+  font-weight: bold;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  margin-left: 30px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.buttons {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin, .signup {
+  width: 141px;
+  height: 45px;
+  border: 0;
+  border-radius: 5px;
+  background-color: blue;
+  color: #fff;
+  font-size: 22px;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.oneNewsText {
+  font-size: 32px;
+  line-height: 50px;
+  margin-top: 100px;
+}
+
+#newsPage {
+  margin-top: 100px;
+}
+
+.commentBlock {
+  margin-top: 100px;
+}
+
+.linkToMain {
+  border: 1px solid;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.typeCom {
+  display: flex;
+  
+}
+
+.input {
+  width: 300px;
+  height: 35px;
+  font-size: 16px;
+  border: 0;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  padding-left: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.inputBlock {
+  width: 300px;
+  margin: auto;
+}
+
+.btnBlock {
+  margin-top: 15px;
+  margin-left: 3px;
+}
+
+.submitBtn {
+  width: 300px;
+  height: 35px;
+  border: 0;
+  border-radius: 5px;
+  background-color: blue;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.linktosign {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+  opacity: 0.5;
+  text-transform: lowercase;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
