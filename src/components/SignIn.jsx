@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../redux/reducers/signupReducer';
 
 const Signin = () => {
@@ -12,6 +12,8 @@ const Signin = () => {
 
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value)
@@ -25,12 +27,13 @@ const Signin = () => {
     dispatch(auth(login, password))
     setLogin('')
     setPassword('')
+    navigate('/')
   }
 
   return (
     <div className='container'>
-    <Link to={'/'}>Главная</Link>
-     <p className='error'>{error}</p>
+      <Link to={'/'}>Главная</Link>
+      <p className='error'>{error}</p>
       <div className="inputBlock">
         <div>
           <input

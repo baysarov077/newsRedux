@@ -17,17 +17,16 @@ const News = () => {
 
   useEffect(() => {
     dispatch(loadNews())
+
   }, [dispatch])
-
-
-
-  const oneNews = news.find(item => item._id === id)
 
   useEffect(() => {
 
     dispatch(getComments(id))
 
   }, [dispatch, id])
+
+  const oneNews = news.find(item => item._id === id)
 
   const coms = useSelector(state => state.commentsReducer.comments)
 
@@ -37,23 +36,27 @@ const News = () => {
   return (
     <>
       <div className='container'>
-      <Link className='linkToMain' to={'/'}>Главная</Link>
+        <Link className='linkToMain' to={'/'}>Главная</Link>
         <div id='newsPage'>
-        <h1>{oneNews.title}</h1>
-        <p className='oneNewsText'>{oneNews.text}</p>
-        <div className='commentBlock'>
-          <h2>Комментарии:</h2>
-          {coms.map(i => {
-            return (
-              <div key={i._id}>
-                <h4>{i.user}</h4>
-                <p>{i.text}</p>
-                <hr />
-              </div>
-            )
-          })}
-        </div>
-        <CreateComments />
+          <h1>{oneNews.title}</h1>
+          <p className='oneNewsText'>{oneNews.text}</p>
+          <div className='commentBlock'>
+            <h2>Комментарии: {coms.length}</h2>
+            {coms.map(i => {
+              return (
+                <>
+                  <div className='comsFlex' key={i._id}>
+                    <div>
+                      <h4>{i.author}</h4>
+                      <p>{i.text}</p>
+                    </div>
+                  </div>
+                  <hr />
+                </>
+              )
+            })}
+          </div>
+          <CreateComments />
         </div>
       </div>
     </>

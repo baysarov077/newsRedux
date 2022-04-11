@@ -16,14 +16,14 @@ export const newsReducer = (state = initialState, action) => {
         ...state,
         loading: true
       }
-      default:
-        return state
-}
+    default:
+      return state
+  }
 }
 
 export const loadNews = () => {
   return async (dispatch) => {
-    dispatch({type: 'pending'})
+    dispatch({ type: 'pending' })
     try {
       const res = await fetch('http://localhost:4000/news')
       const news = await res.json()

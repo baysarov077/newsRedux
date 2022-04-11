@@ -2,7 +2,8 @@ const initialState = {
   signUp: false,
   signIn: false,
   error: null,
-  token: localStorage.getItem('token')
+  token: localStorage.getItem('token'),
+  id: localStorage.getItem('id')
 }
 
 export const application = (state = initialState, action) => {
@@ -41,6 +42,13 @@ export const application = (state = initialState, action) => {
         ...state,
         signIn: false,
         error: action.payload
+      }
+
+    case 'logout':
+      return {
+        ...state,
+        token: null,
+        id: null
       }
     default:
       return state;
@@ -82,7 +90,7 @@ export const auth = (login, password) => {
     } else {
       dispatch({ type: 'application/signin/fulfilled', payload: json })
       localStorage.setItem('token', json.token)
-      
+      localStorage.setItem('id', json.id)
     }
   }
 }

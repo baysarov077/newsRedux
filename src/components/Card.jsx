@@ -9,7 +9,7 @@ import { loadNews } from '../redux/reducers/newsReducer';
 const Card = () => {
   const { id } = useParams()
   const news = useSelector(state => state.newsReducer.news)
-  const reg = useSelector(state => state.application.signIn)
+  const token = useSelector(state => state.application.token)
 
   const filteredNews = news.filter((item => {
     if (!id) return true
@@ -24,19 +24,26 @@ const Card = () => {
 
   const loading = useSelector(state => state.newsReducer.loading)
 
+  const logout = () => {
+    localStorage.clear()
+    dispatch({ type: "logout" })
+  }
+
+
   if (loading) {
     return <div>...</div>
   }
   return (
     <div className='container'>
-      <div>
-      {reg ? <div style={{backgroundColor: 'red', width: '100px', height: '100px'}}>sвыаыфваыаы</div> : null}
-      </div>
       <div className='menu'>
         <Categories />
         <div className='buttons'>
-        <button className='signin'><Link className='link' to={'/signin'}>Войти</Link></button>
-        <button className='signup'><Link className='link' to={'/signup'}>Регистрация</Link></button>
+          {!token ?
+            <>
+              <button className='signin'><Link className='link' to={'/signin'}>Войти</Link></button>
+              <button className='signup'><Link className='link' to={'/signup'}>Регистрация</Link></button>
+            </>
+            : <button onClick={logout} className='signin'>Выйти</button>}
         </div>
       </div>
       <hr />

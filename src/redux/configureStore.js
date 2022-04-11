@@ -6,7 +6,7 @@ import { catsReducer } from './reducers/catsReducer.js';
 import { commentsReducer } from './reducers/commentsReducer.js';
 import { application } from './reducers/signupReducer.js';
 
-const combineReducer = combineReducers({newsReducer, catsReducer, commentsReducer, application})
+const combineReducer = combineReducers({ newsReducer, catsReducer, commentsReducer, application })
 
 export const store = createStore(combineReducer, applyMiddleware(thunk))
 

@@ -17,6 +17,11 @@ export const commentsReducer = (state = initialState, action) => {
           action.payload
         ]
       }
+    case 'remove':
+      return {
+        ...state,
+        comments: state.comments.filter(item => action.payload !== item.id)
+      }
     default:
       return state;
   }
@@ -30,7 +35,7 @@ export const getComments = (id) => {
 
       dispatch({ type: 'getComments', payload: com })
     } catch (error) {
-      dispatch({type: 'error', payload: error})
+      dispatch({ type: 'error', payload: error })
 
     }
   }
@@ -42,15 +47,30 @@ export const addComment = (value, id) => {
     try {
       const res = await fetch(`http://localhost:4000/comments/${id}`, {
         method: 'POST',
-        headers: { 
+        headers: {
           Authorization: `Bearer ${state.application.token}`,
-          'Content-Type': 'application/json' },
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           text: value,
         })
       })
       const data = await res.json()
+      console.log(data);
       dispatch({ type: 'comment', payload: data })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export const delCom = (id) => {
+  return async (dispatch) => {
+    try {
+      await fetch(`http://localhost:4000/comments/${id}`, {
+        method: 'DELETE'
+      })
+      dispatch({ type: 'remove', payload: id })
     } catch (error) {
       console.log(error);
     }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addComment } from '../redux/reducers/commentsReducer';
 
 const CreateComments = () => {
 
-  const {id} = useParams()
-  
+  const { id } = useParams()
+
   const dispatch = useDispatch()
 
   const [value, setValue] = useState('')
@@ -20,17 +20,23 @@ const CreateComments = () => {
     setValue('')
   }
 
+  const token = useSelector(state => state.application.token)
+
   return (
-    <div>
+    <div className='flex-block'>
       <div className='typeCom'>
-        <input 
+        <input
+          className='typeCom__input'
           placeholder='Введите текст'
           value={value}
           onChange={handleChange}
           type="text" />
       </div>
       <div>
-        <button onClick={handleSubmit}>Отправить</button>
+        <button
+          className='sendBtn'
+          disabled={token ? false : true}
+          onClick={handleSubmit}>Отправить</button>
       </div>
     </div>
   );

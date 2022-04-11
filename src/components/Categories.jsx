@@ -21,7 +21,6 @@ const Categories = () => {
           return <Link className='linkCats' key={item._id} to={`/news/category/${item._id}`}>{item.category}</Link>
         })}
       </ul>
-      
     </div>
   );
 };
